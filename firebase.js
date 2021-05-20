@@ -60,7 +60,7 @@ function addExpenseOnFirestore(textDesc, expense) {
     });
 }
 
-logout.addEventListener("click", () => {
-  auth.signOut();
-  window.location = "./login.html";
-});
+// logout.addEventListener("click", () => {
+//   auth.signOut();
+//   window.location = "./login.html";
+// });
