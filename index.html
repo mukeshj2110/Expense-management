@@ -1,11 +1,9 @@
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="./index.css"/>
     <link
 			rel="stylesheet"
 			href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -19,46 +17,79 @@
         integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP"
         crossorigin="anonymous"
     ></script>
+    <title>Expense-Management</title>
 </head>
-
 <body>
-    <div class="login">
+    <nav class="navbar navbar-dark bg-dark">
+        <span class="navbar-brand mb-0 h1">Xpense Manager</span>
+        <span class="navbar-brand mb-0 h1" id="headingTotal"></span>
+        <span class="navbar-brand mb-0 h1"><button id="logout"> <i class="fas fa-power-off"></i></button></span>
+    </nav>
 
-        <div class="login__container">
-            <h1>Sign In</h1>
-            <form>
+    <div class="container-fluid bg-light" style="min-height: 100vh"> 
+        <div class="container">
+             
+            <div class="jumbotron mt-4">
+                <div class="input-group mb-3">
+                    <input
+                            id="inputAmount"
+							type="text"
+							class="form-control"
+							placeholder="Amount spent"
+							aria-label="Amount spent"
+							aria-describedby="spent in rupee"
+						/>
+						<div class="input-group-append">
+							<span class="input-group-text" id="spent in rupee">₹</span>
+						</div>
 
-                <input type="email" placeholder="Enter your email address" id="email">
-                <input type="password" placeholder="Enter your password" id="paswd">
-                <button id="btn_signIn"> <i class="fas fa-sign-in-alt"></i>Log In as existing user </button>
-                <button id="btn_google_auth">
-                    <i class="fab fa-google"></i>
-                    Continue With Google</button>
-                    <button id="btn_register">
-                        <i class="fas fa-user-plus"></i>
-                        Sign In as New user</button>
-            </form>
-        </div>
+                        
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="spent at">@</span>
+                    </div>
+                    <input
+                        id="inputDesc"
+                        type="text"
+                        class="form-control"
+                        placeholder="spent On"
+                        aria-label="spent On"
+                        aria-describedby="spent at"
+                    />
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-primary" type="button" id="btnAddExpense">Add</button>
+                    </div>
+                </div>
+                <div class="input-group-append">
+                    <button class="btn btn-outline-primary" type="button" id="btnReset">Reset</button>
+                </div>
+            </div>
+
+            <div>
+                <ul class="list-group" id="expenseTable">
+
+                </ul>
+            </div>   
+                    
+        </div>   
     </div>
-    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
-
-    <script>
-        // Your web app's Firebase configuration
-        var firebaseConfig = {
-          apiKey: "AIzaSyD9ZpJPnyK4neNdc8wCI9VWsaV5MRYx5hQ",
-          authDomain: "expense-management-ced26.firebaseapp.com",
-          projectId: "expense-management-ced26",
-          storageBucket: "expense-management-ced26.appspot.com",
-          messagingSenderId: "307113238195",
-          appId: "1:307113238195:web:4a5d0bf7556bb6c3215ac6"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-      </script>
     
-    <script src="../Expense-management/public/fireAuth.js"></script>
-</body>
 
+
+
+
+
+    
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
+
+
+<script src="./firebaseConfig.js"></script>
+<script src="./firebase.js"></script>
+<script src="./fireAuth.js"></script>
+<script src="./index.js"></script>
+</body>
 </html>
