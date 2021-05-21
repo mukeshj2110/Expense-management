@@ -41,6 +41,8 @@ function deleteFromFirebase(docId, expense) {
 }
 
 function addExpenseOnFirestore(textDesc, expense) {
+
+  if(textDesc.trim().length!==0 && !isNaN(expense) ){
   db.collection("expenses")
     .add({
       desc: textDesc,
@@ -53,11 +55,14 @@ function addExpenseOnFirestore(textDesc, expense) {
     .catch((error) => {
       console.error("Error adding document: ", error);
     });
+  
   db.collection("expenses")
     .doc("total")
     .update({
       total: firebase.firestore.FieldValue.increment(expense),
     });
+
+  }
 }
 
 // logout.addEventListener("click", () => {

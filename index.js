@@ -20,16 +20,20 @@ function addExpenseToTotal() {
   expenseItem.desc = textDesc;
   expenseItem.amount = expense;
   expenseItem.moment = new Date();
+  // console.log(expense ,textDesc);
   if (!isNaN(expense)) {
+    console.log(expense ,textDesc);
     addExpenseOnFirestore(textDesc, expense);
     inputElement.value = "";
     inputDescEl.value = "";
+  }else{
+    alert("please Add Amount & Spent On ");
   }
+  
+  // totalExpense = totalExpense + expense;
+  // const someText = `Total: ${totalExpense}`;
 
-  totalExpense = totalExpense + expense;
-  const someText = `Total: ${totalExpense}`;
-
-  headingEl.textContent = someText;
+  // headingEl.textContent = someText;
 
 }
 
